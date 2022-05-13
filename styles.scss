@@ -23,7 +23,6 @@ body {
         align-items: center;
         padding: 4em;
         width: 100%;
-        max-width: 600px;
 
         .navigation-menu {
             display: block;
@@ -33,14 +32,54 @@ body {
             padding: 1.4em;
             background: #00365a;
             cursor: pointer;
+            position: relative;
+            transition: background ease-in-out .3s;
+
+            &:hover {
+            background:#001e31;
+
+                .burger-bar {
+                    background-color: #fff;
+                }
+            }
 
             .burger-bar {
                 display: block;
-                width: 1.5em;
+                width: 2em;
                 height: .3em;
                 border-radius: .1em;
-                background-color: #fff;
-                margin: 0 0 .3em;
+                background-color: #cacaca;
+                position: absolute;
+                top: 12px;
+                left: 11px;
+                transition: all ease-in-out .3s;
+                opacity: 1;
+
+                &:nth-child(2) {
+                    top: 19px;
+                }
+                
+                &:nth-child(3) {
+                    top: 26px;
+                }
+
+                &--clicked:nth-child(1) {
+                    width: 2.3em;
+                    top: 20px;
+                    left: 9px;
+                    transform: rotate(45deg);
+                }
+
+                &--clicked:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &--clicked:nth-child(3) {
+                    width: 2.3em;
+                    top: 20px;
+                    left: 9px;
+                    transform: rotate(-45deg);
+                }
             }
         }
 
@@ -48,8 +87,8 @@ body {
             display: none;
             position: absolute;
             width: 200px;
-            right: 0;
             top: 100px;
+            right: 40px;
             
             ul {
                 list-style: none;
